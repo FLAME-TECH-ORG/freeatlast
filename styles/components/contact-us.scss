@@ -15,7 +15,7 @@
 
     @media only screen and (max-width: pxToRem(768)) {
       flex-direction: column;
-      gap: pxToRem(80);
+      gap: pxToRem(20);
     }
 
     &-writeup {
@@ -43,7 +43,8 @@
           display: block;
 
           @media only screen and (max-width: pxToRem(768)) {
-            font-size: pxToRem(20);
+            font-size: pxToRem(28);
+            max-width: pxToRem(300);
           }
         }
 
@@ -71,6 +72,10 @@
           letter-spacing: 0px;
           color: $accent-color;
           display: flex;
+
+          @media only screen and (max-width: pxToRem(768)) {
+            font-size: pxToRem(16);
+          }
 
           span {
             color: #000;
