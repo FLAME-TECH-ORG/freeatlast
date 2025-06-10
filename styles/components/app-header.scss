@@ -106,7 +106,6 @@
       list-style-type: none;
       display: flex;
       flex-direction: column;
-      align-items: center;
       gap: pxToRem(16);
       padding: 0;
 
@@ -118,6 +117,24 @@
         letter-spacing: 0%;
         cursor: pointer;
       }
+    }
+
+    &-contact-us {
+      display: block;
+      width: 100%;
+      background-color: $primary-color;
+      border: none;
+      cursor: pointer;
+      height: pxToRem(46);
+      box-sizing: border-box;
+      border-radius: pxToRem(10);
+      padding: pxToRem(8) pxToRem(28);
+      font-weight: 550;
+      font-size: pxToRem(16);
+      line-height: pxToRem(30);
+      letter-spacing: 0%;
+      margin-top: pxToRem(20);
+      color: #fff;
     }
   }
 

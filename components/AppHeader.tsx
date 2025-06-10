@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { IoIosMenu } from "react-icons/io";
+import { IoClose } from "react-icons/io5";
 
 export default function AppHeader() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -35,7 +36,7 @@ export default function AppHeader() {
             setShowMobileMenu((prev) => !prev);
           }}
         >
-          <IoIosMenu />
+          {showMobileMenu ? <IoClose /> : <IoIosMenu />}
         </button>
       </div>
 
@@ -46,8 +47,11 @@ export default function AppHeader() {
           <li>Who We Are</li>
           <li>About Us</li>
           <li>Our Programs</li>
-          <li>Contact Us</li>
         </ul>
+
+        <button className="app-header__popup-content-contact-us">
+          Contact Us
+        </button>
       </div>
 
       <div
