@@ -1,0 +1,90 @@
+.about-us {
+  background-color: #fefaf0;
+  padding: pxToRem(100) 0;
+  @media only screen and (max-width: pxToRem(768)) {
+    padding: pxToRem(70) 0;
+  }
+
+  &__content {
+    @include page-padding;
+    display: flex;
+    align-items: center;
+    gap: pxToRem(100);
+
+    @media only screen and (max-width: pxToRem(1200)) {
+      flex-direction: column;
+      gap: pxToRem(20);
+    }
+
+    &-image {
+      border-radius: pxToRem(15);
+      flex: 0.5;
+      overflow: hidden;
+
+      @media only screen and (max-width: pxToRem(1200)) {
+        order: 2;
+      }
+
+      // tablet only
+      @media only screen and (min-width: pxToRem(769)) and (max-width: pxToRem(1200)) {
+        width: 100%;
+        max-height: 60vh;
+      }
+
+      img {
+        display: block;
+        border-radius: inherit;
+        width: 100%;
+        object-fit: cover;
+        height: 100%;
+        max-height: 100%;
+      }
+    }
+
+    &-texts {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: pxToRem(24);
+
+      @media only screen and (min-width: pxToRem(1200)) {
+        max-width: pxToRem(500);
+      }
+
+      &-headers {
+        display: flex;
+        flex-direction: column;
+        gap: pxToRem(8);
+
+        h2 {
+          color: $primary-color;
+          font-weight: 700;
+          font-size: pxToRem(16);
+          line-height: 100%;
+          letter-spacing: 0%;
+          text-transform: uppercase;
+
+          @media only screen and (max-width: pxToRem(768)) {
+            font-size: pxToRem(12);
+          }
+        }
+
+        h3 {
+          font-weight: 700;
+          font-size: pxToRem(45);
+          line-height: 120%;
+          letter-spacing: 0%;
+          max-width: pxToRem(500);
+          display: block;
+
+          @media only screen and (max-width: pxToRem(768)) {
+            font-size: pxToRem(28);
+          }
+        }
+      }
+
+      P {
+      }
+    }
+  }
+}

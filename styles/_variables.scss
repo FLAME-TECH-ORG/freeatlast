@@ -1,0 +1,17 @@
+:root {
+  --background: #ffffff;
+  --text-color: #000000;
+  --primary-color: #e7b018;
+  --accent-color: #667122;
+}
+
+$background: var(--background);
+$text-color: var(--text-color);
+$primary-color: var(--primary-color);
+$accent-color: var(--accent-color);
+$max-width: 1400;
+
+$header-height: 85px;
+// @media only screen and (min-width: pxToRem(900)) {
+//   $header-height: 109px;
+// }

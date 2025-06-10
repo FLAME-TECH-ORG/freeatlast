@@ -1,0 +1,36 @@
+.anchor-scripture {
+  background-color: $accent-color;
+  color: #fff;
+  padding: pxToRem(60) 0;
+
+  @media only screen and (max-width: pxToRem(768)) {
+    padding: pxToRem(30) 0;
+  }
+
+  &__content {
+    @include page-padding;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: pxToRem(24);
+    text-align: center;
+
+    * {
+      font-weight: 700;
+      font-size: pxToRem(24);
+      line-height: 140%;
+      letter-spacing: 0%;
+      text-align: center;
+
+      @media only screen and (max-width: pxToRem(768)) {
+        font-size: pxToRem(18);
+      }
+    }
+
+    &-text {
+      width: 100%;
+      margin: 0 auto;
+      max-width: pxToRem(800);
+    }
+  }
+}

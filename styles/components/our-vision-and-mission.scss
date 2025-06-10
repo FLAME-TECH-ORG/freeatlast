@@ -1,0 +1,75 @@
+.our-vision-and-mission {
+  padding: pxToRem(90) 0;
+  @media only screen and (max-width: pxToRem(768)) {
+    padding: pxToRem(40) 0;
+  }
+
+  &-container {
+    padding: pxToRem(70) 0;
+
+    &__content {
+      display: flex;
+      align-items: center;
+      gap: pxToRem(60);
+      @include page-padding;
+
+      @media only screen and (max-width: pxToRem(1200)) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: pxToRem(20);
+      }
+    }
+
+    &.mission {
+      color: #fff;
+      background-color: $accent-color;
+    }
+
+    &.vision {
+      h2 {
+        color: #000 !important;
+      }
+      background-color: #fefaf0;
+    }
+
+    &-head {
+      display: flex;
+      flex-direction: column;
+      gap: pxToRem(8);
+      @media only screen and (min-width: pxToRem(1200)) {
+        max-width: pxToRem(590);
+      }
+
+      h2 {
+        color: $primary-color;
+        font-weight: 700;
+        font-size: pxToRem(16);
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-transform: uppercase;
+
+        @media only screen and (max-width: pxToRem(768)) {
+          font-size: pxToRem(12);
+        }
+      }
+
+      h3 {
+        font-weight: 700;
+        font-size: pxToRem(36);
+        line-height: 125%;
+        letter-spacing: 0%;
+        display: block;
+
+        @media only screen and (max-width: pxToRem(768)) {
+          font-size: pxToRem(20);
+        }
+      }
+    }
+
+    &-text {
+      @media only screen and (min-width: pxToRem(1200)) {
+        max-width: pxToRem(590);
+      }
+    }
+  }
+}

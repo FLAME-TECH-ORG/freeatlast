@@ -1,0 +1,103 @@
+.our-programs {
+  padding: pxToRem(90) 0;
+  @media only screen and (max-width: pxToRem(768)) {
+    padding: pxToRem(40) 0;
+  }
+
+  padding-top: 0;
+
+  &__content {
+    @include page-padding;
+
+    &__texts {
+      display: flex;
+      flex-direction: column;
+      gap: pxToRem(8);
+      text-align: center;
+
+      h2 {
+        color: $primary-color;
+        font-weight: 700;
+        font-size: pxToRem(16);
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-transform: uppercase;
+
+        @media only screen and (max-width: pxToRem(768)) {
+          font-size: pxToRem(12);
+        }
+      }
+
+      h3 {
+        font-weight: 700;
+        font-size: pxToRem(45);
+        line-height: 125%;
+        letter-spacing: 0%;
+        display: block;
+
+        @media only screen and (max-width: pxToRem(768)) {
+          font-size: pxToRem(20);
+        }
+      }
+
+      p {
+        font-weight: 400;
+        font-size: pxToRem(16);
+        line-height: 120%;
+        letter-spacing: 0%;
+        max-width: pxToRem(716);
+        margin: auto;
+      }
+    }
+
+    &-cards {
+      display: grid;
+      margin-top: pxToRem(50);
+      grid-template-columns: 1fr 1fr;
+      gap: pxToRem(50);
+
+      @media only screen and (max-width: pxToRem(768)) {
+        grid-template-columns: 1fr;
+      }
+
+      &-card {
+        display: flex;
+        flex-direction: column;
+        gap: pxToRem(23);
+
+        &__image {
+          height: pxToRem(270);
+          border-radius: pxToRem(18);
+          background-color: #fefaf0;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: inherit;
+          }
+        }
+
+        &__texts {
+          display: flex;
+          flex-direction: column;
+          gap: pxToRem(16);
+
+          h4 {
+            font-weight: 700;
+            font-size: pxToRem(24);
+            line-height: 105%;
+            letter-spacing: 0%;
+          }
+
+          p {
+            font-weight: 400;
+            font-size: pxToRem(16);
+            line-height: 120%;
+            letter-spacing: 0%;
+          }
+        }
+      }
+    }
+  }
+}

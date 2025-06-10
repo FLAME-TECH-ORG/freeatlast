@@ -1,0 +1,18 @@
+.app-layout {
+  width: 100%;
+  background-color: $background;
+  box-sizing: border-box;
+  min-height: 100vh;
+
+  &__header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: pxToRem(-1);
+  }
+
+  &__body {
+    box-sizing: border-box;
+    min-height: calc(100vh - $header-height);
+    box-sizing: border-box;
+  }
+}
