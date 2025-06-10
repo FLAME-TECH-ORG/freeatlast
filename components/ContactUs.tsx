@@ -60,7 +60,9 @@ export default function ContactUs() {
             </div>
           </div>
           <div className="form-input__row">
-            <button className="form-btn">Submit</button>
+            <div>
+              <button className="form-btn">Submit</button>
+            </div>
           </div>
         </form>
       </div>
