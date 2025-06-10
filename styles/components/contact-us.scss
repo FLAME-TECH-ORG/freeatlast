@@ -13,7 +13,7 @@
     justify-content: space-between;
     justify-content: space-around;
 
-    @media only screen and (max-width: pxToRem(768)) {
+    @media only screen and (max-width: pxToRem(1000)) {
       flex-direction: column;
       gap: pxToRem(20);
     }
@@ -99,8 +99,15 @@
       max-width: pxToRem(714);
       display: flex;
       flex-direction: column;
+      gap: pxToRem(10);
 
-      gap: pxToRem(46);
+      @media only screen and (min-width: pxToRem(600)) and (max-width: pxToRem(1000)) {
+        max-width: pxToRem(450);
+      }
+
+      @media only screen and (min-width: pxToRem(1200)) {
+        gap: pxToRem(46);
+      }
 
       .form-input {
         display: flex;
@@ -158,6 +165,10 @@
       }
 
       .form-btn {
+        @media only screen and (max-width: pxToRem(1200)) {
+          margin-top: pxToRem(20);
+        }
+
         background-color: $accent-color;
         border: none;
         cursor: pointer;
