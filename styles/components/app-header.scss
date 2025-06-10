@@ -69,6 +69,7 @@
         cursor: pointer;
         padding: pxToRem(8);
         display: none;
+        color: #000;
 
         // show on mobile
         @media only screen and (max-width: pxToRem(768)) {
