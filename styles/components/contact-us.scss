@@ -11,10 +11,11 @@
     @include page-padding;
     display: flex;
     justify-content: space-between;
-    gap: pxToRem(80);
+    justify-content: space-around;
 
     @media only screen and (max-width: pxToRem(768)) {
       flex-direction: column;
+      gap: pxToRem(80);
     }
 
     &-writeup {
@@ -110,6 +111,7 @@
 
           @media only screen and (max-width: pxToRem(800)) {
             flex-direction: column;
+            gap: pxToRem(15);
           }
 
           .form-input {
