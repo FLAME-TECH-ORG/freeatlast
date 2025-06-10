@@ -1,0 +1,55 @@
+.footer {
+  background-color: $accent-color;
+  margin-top: pxToRem(100);
+
+  &__content {
+    @include page-padding;
+    position: relative;
+    height: pxToRem(400);
+
+    &-admonishion {
+      position: absolute;
+      width: 100%;
+      max-width: 90vw;
+      text-align: center;
+      box-sizing: border-box;
+      margin: auto;
+
+      top: -20%;
+
+      &-text {
+        background-color: #f5f7e9;
+        padding: pxToRem(40) pxToRem(30);
+
+        border-radius: pxToRem(18);
+
+        @media only screen and (min-width: pxToRem(800)) {
+          padding: pxToRem(50);
+        }
+
+        @media only screen and (min-width: pxToRem(1200)) {
+          padding: pxToRem(70) pxToRem(30);
+        }
+
+        p {
+          font-weight: 700;
+          font-size: pxToRem(15);
+          line-height: 140%;
+
+          letter-spacing: 0%;
+          max-width: pxToRem(1039);
+          margin: 0 auto;
+
+          @media only screen and (min-width: pxToRem(900)) {
+            font-size: pxToRem(20);
+            line-height: 130%;
+          }
+
+          @media only screen and (min-width: pxToRem(1200)) {
+            font-size: pxToRem(24);
+          }
+        }
+      }
+    }
+  }
+}
