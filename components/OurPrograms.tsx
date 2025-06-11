@@ -56,7 +56,7 @@ export default function OurPrograms() {
 
             scrollTrigger: {
               trigger: attr,
-              start: "top 94%",
+              start: "top 96%",
               end: "bottom 85%",
               scrub: true, // Smoothly animate the movement as you scroll
               toggleActions: "play none none reverse",
