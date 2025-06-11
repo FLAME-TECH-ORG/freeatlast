@@ -1,10 +1,10 @@
 .testimonies {
-  padding: pxToRem(100) 0;
+  padding: pxToRem(150) 0;
   @media only screen and (max-width: pxToRem(768)) {
     padding: pxToRem(40) 0;
   }
 
-  padding-top: 0;
+  padding-top: pxToRem(50);
 
   &__content {
     @include page-padding;
@@ -55,6 +55,7 @@
       display: flex;
       align-items: center;
       gap: pxToRem(32);
+      margin: pxToRem(20) 0;
 
       &-action {
         height: pxToRem(52);
@@ -68,18 +69,96 @@
         display: none;
         color: #fff;
         font-size: pxToRem(24);
+        flex-shrink: 0;
         cursor: pointer;
 
-        @media only screen and (min-width: pxToRem(768)) {
+        @media only screen and (min-width: pxToRem(1000)) {
           display: flex;
         }
       }
 
-      &-cards {
-        flex: 1;
+      &-item {
         background-color: $accent-color;
-        height: pxToRem(313);
+        width: calc(100% - pxToRem(16));
         border-radius: pxToRem(15);
+        margin-right: pxToRem(16);
+        padding: pxToRem(5);
+        min-height: pxToRem(313) !important;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        @media only screen and (max-width: pxToRem(768)) {
+          border-radius: pxToRem(18);
+        }
+
+        &__values {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          justify-content: center;
+          box-sizing: border-box;
+          min-height: inherit;
+          height: inherit;
+
+          gap: pxToRem(18);
+          color: #fff;
+          text-align: center;
+          box-sizing: border-box;
+          padding: pxToRem(0) pxToRem(50);
+
+          &-text {
+            font-weight: 400;
+            white-space: normal;
+            font-size: pxToRem(24);
+            line-height: 125%;
+            letter-spacing: pxToRem(0);
+            max-width: pxToRem(971);
+
+            @media only screen and (max-width: pxToRem(768)) {
+              font-size: pxToRem(16);
+              line-height: 150%;
+            }
+          }
+
+          &-author {
+            font-weight: 700;
+            font-size: pxToRem(24);
+            line-height: 100%;
+            letter-spacing: pxToRem(0);
+
+            @media only screen and (max-width: pxToRem(768)) {
+              font-size: pxToRem(16);
+              line-height: 125%;
+            }
+          }
+        }
+      }
+    }
+
+    &-mobile-actions {
+      display: none;
+      @media only screen and (max-width: pxToRem(1000)) {
+        display: flex;
+        justify-content: center;
+        gap: pxToRem(24);
+        margin-top: pxToRem(25);
+      }
+
+      &-action {
+        height: pxToRem(39);
+        width: pxToRem(39);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: $accent-color;
+        border: none;
+        color: #fff;
+        font-size: pxToRem(19.5);
+        cursor: pointer;
+        transition: transform 0.4s ease-in-out;
       }
     }
   }
