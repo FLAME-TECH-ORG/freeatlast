@@ -41,6 +41,62 @@ export default function OurPrograms() {
           }
         );
       });
+
+    Gsap.utils
+      .toArray(".our-programs__content-cards-card")
+      .forEach((attr: any, i) => {
+        Gsap.fromTo(
+          attr,
+          {
+            y: 30, // Start position (30px below)
+          },
+          {
+            y: 0, // End position (original position)
+            duration: 0.8,
+
+            scrollTrigger: {
+              trigger: attr,
+              start: "top 94%",
+              end: "bottom 85%",
+              scrub: true, // Smoothly animate the movement as you scroll
+              toggleActions: "play none none reverse",
+            },
+            delay: i * 0.1, // Stagger the animation
+          }
+        );
+      });
+
+    // fade in the texts in the cards .our-programs__content-cards-card
+    Gsap.utils
+      .toArray(".our-programs__content-cards-card__texts > *")
+      .forEach((attr: any, i) => {
+        Gsap.fromTo(
+          attr,
+          {
+            y: 5,
+            opacity: 0,
+          },
+          {
+            y: 0, // End position (original position)
+            // opacity: 1, // End with full opacity
+            duration: 1,
+            ease: "power1.out",
+            scrollTrigger: {
+              trigger: attr,
+              start: "top 95%",
+              end: "bottom 85%",
+              snap: 1,
+              scrub: true, // Smoothly animate the movement as you scroll
+              toggleActions: "play none none reverse",
+              // change opacity based on scroll position percentage
+              onUpdate: (self) => {
+                const progress = self.progress.toFixed(2);
+                attr.style.opacity = progress;
+              },
+            },
+          }
+        );
+      });
   }, []);
 
   const [programs] = useState([
