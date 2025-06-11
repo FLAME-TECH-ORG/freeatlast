@@ -23,10 +23,10 @@ export default function Partnership() {
     }).fromTo(
       ".partnership__content",
       {
-        y: -15, // Start position (100px above)
+        y: -20, // Start position (100px above)
       },
       {
-        y: 15, // End position (original position)
+        y: 20, // End position (original position)
         duration: 4, // Duration of the animation
       }
     );
