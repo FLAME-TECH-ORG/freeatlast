@@ -17,17 +17,19 @@ export default function WhoWeAre() {
       Gsap.fromTo(
         attr,
         {
-          scale: 0,
+          y: 15, // Start position (30px below)
+          opacity: 0, // Start with opacity 0
         },
         {
-          scale: 1,
+          y: 0, // End position (original position)
+          opacity: 1, // End with full opacity
           duration: 0.3,
-          ease: "power4.out",
 
           scrollTrigger: {
-            trigger: ".who-we-are__content",
-            start: "top 90%",
+            trigger: attr,
+            start: "top 95%",
             end: "bottom top",
+            toggleActions: "play none none reverse",
           },
           delay: i * 0.2,
         }
@@ -46,10 +48,10 @@ export default function WhoWeAre() {
       }).fromTo(
         ".who-we-are__content-image",
         {
-          y: -20, // Start position (30px above)
+          y: -15, // Start position (30px above)
         },
         {
-          y: 30, // End position (original position)
+          y: 16, // End position (original position)
           duration: 4, // Duration of the animation
         }
       );
