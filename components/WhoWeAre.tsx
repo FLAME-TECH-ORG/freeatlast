@@ -17,21 +17,21 @@ export default function WhoWeAre() {
       Gsap.fromTo(
         attr,
         {
-          y: 15, // Start position (30px below)
+          y: 10, // Start position (30px below)
           opacity: 0, // Start with opacity 0
         },
         {
           y: 0, // End position (original position)
           opacity: 1, // End with full opacity
-          duration: 0.3,
+          duration: 0.8,
 
           scrollTrigger: {
             trigger: attr,
-            start: "top 95%",
+            start: "top 90%",
             end: "bottom top",
             toggleActions: "play none none reverse",
           },
-          delay: i * 0.2,
+          delay: i * 0.1,
         }
       );
     });
@@ -77,6 +77,36 @@ export default function WhoWeAre() {
         }
       );
     });
+
+    // fade in the who-we-are__content-writeup children
+    Gsap.utils
+      .toArray(".who-we-are__content-writeup-top > *")
+      .forEach((attr: any, i) => {
+        Gsap.fromTo(
+          attr,
+          {
+            y: 20,
+            opacity: 0,
+          },
+          {
+            y: 0, // End position (original position)
+            // opacity: 1, // End with full opacity
+            duration: 1,
+            ease: "power1.out",
+            scrollTrigger: {
+              trigger: attr,
+              start: "top 94%",
+              end: "bottom 85%",
+              toggleActions: "play none none reverse",
+              // change opacity based on scroll position percentage
+              onUpdate: (self) => {
+                const progress = self.progress.toFixed(2);
+                attr.style.opacity = progress;
+              },
+            },
+          }
+        );
+      });
   }, []);
 
   return (
