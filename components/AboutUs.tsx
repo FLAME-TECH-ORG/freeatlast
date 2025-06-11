@@ -55,6 +55,32 @@ export default function AboutUs() {
         }
       );
     });
+
+    Gsap.utils
+      .toArray(".about-us__content-texts > *")
+      .forEach((attr: any, i) => {
+        Gsap.fromTo(
+          attr,
+          {
+            opacity: 0,
+          },
+          {
+            duration: 1,
+            ease: "power1.out",
+            scrollTrigger: {
+              trigger: attr,
+              start: "top 95%",
+              end: "bottom 85%",
+              scrub: true, // Smoothly animate the movement as you scroll
+              toggleActions: "play none none reverse",
+              onUpdate: (self) => {
+                const progress = self.progress.toFixed(2);
+                attr.style.opacity = progress;
+              },
+            },
+          }
+        );
+      });
   }, []);
 
   return (
