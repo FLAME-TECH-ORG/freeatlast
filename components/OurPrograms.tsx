@@ -1,8 +1,48 @@
 "use client";
 
-import { useState } from "react";
+import gsap from "gsap";
+import { useEffect, useState } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function OurPrograms() {
+  const Gsap = gsap;
+  const scrollTrigger = ScrollTrigger;
+
+  useEffect(() => {
+    Gsap.registerPlugin(scrollTrigger);
+
+    Gsap.utils
+      .toArray(".our-programs__content__texts > *")
+      .forEach((attr: any, i) => {
+        Gsap.fromTo(
+          attr,
+          {
+            y: 20,
+            opacity: 0,
+          },
+          {
+            y: 0, // End position (original position)
+            // opacity: 1, // End with full opacity
+            duration: 1,
+            ease: "power1.out",
+            scrollTrigger: {
+              trigger: attr,
+              start: "top 95%",
+              end: "bottom 85%",
+              snap: 1,
+              scrub: true, // Smoothly animate the movement as you scroll
+              toggleActions: "play none none reverse",
+              // change opacity based on scroll position percentage
+              onUpdate: (self) => {
+                const progress = self.progress.toFixed(2);
+                attr.style.opacity = progress;
+              },
+            },
+          }
+        );
+      });
+  }, []);
+
   const [programs] = useState([
     {
       image: "/our-programs/faith-based.jpg",
