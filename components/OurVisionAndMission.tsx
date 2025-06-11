@@ -1,4 +1,43 @@
+"use client";
+
+import gsap from "gsap";
+import { useEffect } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 export default function OurVisionAndMission() {
+  const Gsap = gsap;
+  const scrollTrigger = ScrollTrigger;
+
+  useEffect(() => {
+    Gsap.registerPlugin(scrollTrigger);
+
+    // fade in our-vision-and-mission-container__content once they appear on the screen
+    Gsap.utils
+      .toArray(".our-vision-and-mission-container__content")
+      .forEach((attr: any, i) => {
+        Gsap.fromTo(
+          attr,
+          {
+            opacity: 0.1,
+            y: 10,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            ease: "power4.out",
+            scrollTrigger: {
+              trigger: attr,
+              start: "top 80%",
+              end: "bottom top",
+              toggleActions: "play none none reverse",
+            },
+            delay: i * 0.2,
+          }
+        );
+      });
+  }, []);
+
   return (
     <div className="our-vision-and-mission">
       <div className="our-vision-and-mission-container mission">
