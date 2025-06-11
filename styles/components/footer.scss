@@ -1,52 +1,103 @@
 .footer {
   background-color: $accent-color;
-  margin-top: pxToRem(100);
+  padding: pxToRem(50) 0;
 
   &__content {
     @include page-padding;
-    position: relative;
-    height: pxToRem(400);
+    display: flex;
+    justify-content: space-between;
+    gap: pxToRem(60);
 
-    &-admonishion {
-      position: absolute;
-      width: 100%;
-      max-width: 90vw;
-      text-align: center;
-      box-sizing: border-box;
-      margin: auto;
+    @media (max-width: pxToRem(1000)) {
+      flex-direction: column;
+    }
 
-      top: -20%;
+    &-company {
+      max-width: pxToRem(420);
+      display: flex;
+      flex-direction: column;
+      gap: pxToRem(12);
 
-      &-text {
-        background-color: #f5f7e9;
-        padding: pxToRem(40) pxToRem(30);
+      &-logo {
+        height: pxToRem(61);
+        width: fit-content;
+      }
 
-        border-radius: pxToRem(18);
+      &-description {
+        font-weight: 400;
+        font-size: pxToRem(16);
+        line-height: 120%;
+        letter-spacing: 0%;
+        color: #fff;
+      }
+    }
 
-        @media only screen and (min-width: pxToRem(800)) {
-          padding: pxToRem(50);
-        }
+    &-actions {
+      &-title {
+        font-weight: 700;
+        font-size: pxToRem(20);
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: #fff;
+        margin-bottom: pxToRem(16);
+      }
 
-        @media only screen and (min-width: pxToRem(1200)) {
-          padding: pxToRem(70) pxToRem(30);
-        }
+      &-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        max-width: pxToRem(521);
 
-        p {
-          font-weight: 700;
-          font-size: pxToRem(15);
-          line-height: 140%;
+        &-item {
+          border-bottom: pxToRem(1) solid #fff;
+          padding: pxToRem(12) 0;
 
-          letter-spacing: 0%;
-          max-width: pxToRem(1039);
-          margin: 0 auto;
-
-          @media only screen and (min-width: pxToRem(900)) {
-            font-size: pxToRem(20);
-            line-height: 130%;
+          &:last-child {
+            border-bottom: none;
           }
 
-          @media only screen and (min-width: pxToRem(1200)) {
-            font-size: pxToRem(24);
+          span {
+            font-weight: 400;
+            font-size: pxToRem(16);
+            line-height: 135%;
+            letter-spacing: 0%;
+            color: #fff;
+          }
+        }
+      }
+    }
+
+    &-socials {
+      display: flex;
+      flex-direction: column;
+      gap: pxToRem(12);
+
+      &-title {
+        font-weight: 700;
+        font-size: pxToRem(20);
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: #fff;
+        margin-bottom: pxToRem(16);
+      }
+
+      &-list {
+        display: flex;
+        list-style-type: none;
+        flex-wrap: wrap;
+        gap: pxToRem(24);
+
+        &-item {
+          a {
+            color: #fff;
+            font-size: pxToRem(18);
+            text-decoration: none;
+            transition: all 0.3s ease;
+
+            &:hover {
+              color: $primary-color;
+              transform: scale(1.1);
+            }
           }
         }
       }
