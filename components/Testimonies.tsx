@@ -8,8 +8,13 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { useEffect, useState } from "react";
 
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 export default function Testimonies() {
   let featuredSwiper: Swiper;
+  const Gsap = gsap;
+  const scrollTrigger = ScrollTrigger;
 
   const [testimonies] = useState([
     {
@@ -54,6 +59,71 @@ export default function Testimonies() {
         clickable: true,
       },
     });
+
+    Gsap.registerPlugin(scrollTrigger);
+
+    Gsap.utils
+      .toArray(".testimonies__content__texts > *")
+      .forEach((attr: any, i) => {
+        Gsap.fromTo(
+          attr,
+          {
+            y: 20,
+            opacity: 0,
+          },
+          {
+            y: 0, // End position (original position)
+            // opacity: 1, // End with full opacity
+            duration: 1,
+            ease: "power1.out",
+            scrollTrigger: {
+              trigger: attr,
+              start: "top 95%",
+              end: "bottom 85%",
+              snap: 1,
+              scrub: true, // Smoothly animate the movement as you scroll
+              toggleActions: "play none none reverse",
+              // change opacity based on scroll position percentage
+              onUpdate: (self) => {
+                const progress = self.progress.toFixed(2);
+                attr.style.opacity = progress;
+              },
+            },
+          }
+        );
+      });
+
+    // fade in
+    Gsap.utils
+      .toArray(".testimonies__content__testimonials")
+      .forEach((attr: any, i) => {
+        Gsap.fromTo(
+          attr,
+          {
+            y: 20,
+            opacity: 0,
+          },
+          {
+            y: 0, // End position (original position)
+            // opacity: 1, // End with full opacity
+            duration: 1,
+            ease: "power1.out",
+            scrollTrigger: {
+              trigger: attr,
+              start: "top 95%",
+              end: "bottom bottom",
+              snap: 1,
+              scrub: true, // Smoothly animate the movement as you scroll
+              toggleActions: "play none none reverse",
+              // change opacity based on scroll position percentage
+              onUpdate: (self) => {
+                const progress = self.progress.toFixed(2);
+                attr.style.opacity = progress;
+              },
+            },
+          }
+        );
+      });
   }, []);
   return (
     <div className="testimonies">
