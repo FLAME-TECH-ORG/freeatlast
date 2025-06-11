@@ -1,6 +1,6 @@
 export default function ContactUs() {
   return (
-    <div className="contact-us">
+    <div className="contact-us" id="contact-us">
       <div className="contact-us__content">
         <div className="contact-us__content-writeup">
           <div className="contact-us__content-writeup-titles">

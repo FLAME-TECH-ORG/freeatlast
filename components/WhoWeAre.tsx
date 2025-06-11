@@ -1,6 +1,6 @@
 export default function WhoWeAre() {
   return (
-    <div className="who-we-are">
+    <div className="who-we-are" id="who-we-are">
       <div className="who-we-are__content">
         <div className="who-we-are__content-writeup">
           <div className="who-we-are__content-writeup-top">

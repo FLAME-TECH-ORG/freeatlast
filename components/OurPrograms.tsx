@@ -31,7 +31,7 @@ long after program completion`,
   ]);
 
   return (
-    <div className="our-programs">
+    <div className="our-programs" id="our-programs">
       <div className="our-programs__content">
         <div className="our-programs__content__texts">
           <h2> PROGRAMS</h2>

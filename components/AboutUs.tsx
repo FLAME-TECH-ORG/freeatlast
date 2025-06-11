@@ -1,6 +1,6 @@
 export default function AboutUs() {
   return (
-    <div className="about-us">
+    <div className="about-us" id="about-us">
       <div className="about-us__content">
         <div className="about-us__content-image">
           <img src="about-us.jpg" alt="About us" />
