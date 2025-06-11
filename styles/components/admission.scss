@@ -64,6 +64,11 @@
       margin-top: pxToRem(50);
       gap: pxToRem(80);
 
+      // mobile
+      @media only screen and (max-width: pxToRem(768)) {
+        gap: pxToRem(40);
+      }
+
       &__card {
         display: flex;
         flex-direction: column;
@@ -119,6 +124,7 @@
       flex-wrap: wrap;
       gap: pxToRem(32);
       margin: pxToRem(30) 0;
+      margin-top: pxToRem(60);
 
       // mobile
       @media only screen and (max-width: pxToRem(768)) {
