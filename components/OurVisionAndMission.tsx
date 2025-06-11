@@ -18,19 +18,23 @@ export default function OurVisionAndMission() {
         Gsap.fromTo(
           attr,
           {
-            opacity: 0.1,
+            opacity: 0,
             y: 10,
           },
           {
-            opacity: 1,
             y: 0,
             duration: 0.5,
             ease: "power4.out",
             scrollTrigger: {
               trigger: attr,
-              start: "top 80%",
-              end: "bottom top",
+              start: "top 94%",
+              end: "bottom 85%",
               toggleActions: "play none none reverse",
+              // change opacity based on scroll position percentage
+              onUpdate: (self) => {
+                const progress = self.progress.toFixed(2);
+                attr.style.opacity = progress;
+              },
             },
             delay: i * 0.2,
           }
