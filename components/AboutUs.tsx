@@ -46,11 +46,11 @@ export default function AboutUs() {
       }).fromTo(
         ".about-us__content-image",
         {
-          y: -60, // Start position (100px above)
+          y: -55, // Start position (100px above)
           duration: 1.5, // Duration of the animation
         },
         {
-          y: 65, // End position (original position)
+          y: 55, // End position (original position)
           duration: 1.5, // Duration of the animation
         }
       );

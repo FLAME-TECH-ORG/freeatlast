@@ -67,10 +67,10 @@ export default function WhoWeAre() {
       }).fromTo(
         ".who-we-are__content-image",
         {
-          y: -60, // Start position (100px above)
+          y: -55, // Start position (100px above)
         },
         {
-          y: 70, // End position (original position)
+          y: 65, // End position (original position)
           duration: 4, // Duration of the animation
         }
       );
