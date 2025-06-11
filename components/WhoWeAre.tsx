@@ -17,21 +17,24 @@ export default function WhoWeAre() {
       Gsap.fromTo(
         attr,
         {
-          y: 10, // Start position (30px below)
+          y: 20, // Start position (30px below)
           opacity: 0, // Start with opacity 0
         },
         {
           y: 0, // End position (original position)
-          opacity: 1, // End with full opacity
           duration: 0.8,
 
           scrollTrigger: {
             trigger: attr,
-            start: "top 90%",
-            end: "bottom top",
+            start: "top 94%",
+            end: "bottom 85%",
             toggleActions: "play none none reverse",
+            // update the opacity and y position based on scroll position percentage
+            onUpdate: (self) => {
+              const progress = self.progress.toFixed(2) as any; // Get the progress as a percentage
+              attr.style.opacity = progress;
+            },
           },
-          delay: i * 0.1,
         }
       );
     });
