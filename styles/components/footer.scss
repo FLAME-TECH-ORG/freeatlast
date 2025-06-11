@@ -20,7 +20,8 @@
 
       &-logo {
         height: pxToRem(61);
-        width: fit-content;
+        width: auto;
+        object-fit: contain;
       }
 
       &-description {

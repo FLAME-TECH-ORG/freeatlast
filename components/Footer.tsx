@@ -5,11 +5,13 @@ export default function AboutUs() {
     <div className="footer">
       <div className="footer__content">
         <div className="footer__content-company">
-          <img
-            src="logo-white.png"
-            alt="Company Logo"
-            className="footer__content-company-logo"
-          />
+          <div>
+            <img
+              src="logo-white.png"
+              alt="Company Logo"
+              className="footer__content-company-logo"
+            />
+          </div>
           <p className="footer__content-company-description">
             A faith-based, transformative rehabilitation center dedicated to
             restoring hope, rebuilding lives, and renewing purpose.
