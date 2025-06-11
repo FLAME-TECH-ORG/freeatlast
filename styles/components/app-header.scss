@@ -37,6 +37,7 @@
         display: flex;
         align-items: center;
         gap: pxToRem(40);
+        transition: color 0.3s ease-in-out;
 
         li {
           font-weight: 400;
@@ -44,6 +45,10 @@
           line-height: 100%;
           letter-spacing: 0%;
           cursor: pointer;
+
+          &:hover {
+            color: $accent-color;
+          }
         }
       }
 
@@ -117,6 +122,10 @@
         line-height: 100%;
         letter-spacing: 0%;
         cursor: pointer;
+
+        &:hover {
+          color: $accent-color;
+        }
       }
     }
 
