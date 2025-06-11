@@ -1,4 +1,62 @@
+"use client";
+
+import gsap from "gsap";
+import { useEffect } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 export default function AboutUs() {
+  const Gsap = gsap;
+  const scrollTrigger = ScrollTrigger;
+
+  useEffect(() => {
+    const mm = Gsap.matchMedia();
+
+    Gsap.registerPlugin(scrollTrigger);
+
+    // mobile just 30 y
+    mm.add("(max-width: 1199px)", () => {
+      Gsap.timeline({
+        scrollTrigger: {
+          trigger: ".about-us__content-image",
+          start: "top center",
+          end: "bottom top",
+          scrub: true, // Smoothly animate the movement as you scroll
+        },
+      }).fromTo(
+        ".about-us__content-image",
+        {
+          y: -20, // Start position (30px above)
+        },
+        {
+          y: 30, // End position (original position)
+          duration: 4, // Duration of the animation
+        }
+      );
+    });
+
+    //move who-we-are__content-image down gradually on scroll
+    mm.add("(min-width: 1200px)", () => {
+      Gsap.timeline({
+        scrollTrigger: {
+          trigger: ".about-us__content-image",
+          start: "top center",
+          end: "bottom top",
+          scrub: true, // Smoothly animate the movement as you scroll
+        },
+      }).fromTo(
+        ".about-us__content-image",
+        {
+          y: -65, // Start position (100px above)
+          duration: 1.5, // Duration of the animation
+        },
+        {
+          y: 70, // End position (original position)
+          duration: 1.5, // Duration of the animation
+        }
+      );
+    });
+  }, []);
+
   return (
     <div className="about-us" id="about-us">
       <div className="about-us__content">
