@@ -9,6 +9,8 @@ export default function WhoWeAre() {
   const scrollTrigger = ScrollTrigger;
 
   useEffect(() => {
+    const mm = Gsap.matchMedia();
+
     Gsap.registerPlugin(scrollTrigger);
 
     Gsap.utils.toArray(".who-we-are-points").forEach((attr: any, i) => {
@@ -28,6 +30,48 @@ export default function WhoWeAre() {
             end: "bottom top",
           },
           delay: i * 0.2,
+        }
+      );
+    });
+
+    // mobile just 30 y
+    mm.add("(max-width: 1199px)", () => {
+      Gsap.timeline({
+        scrollTrigger: {
+          trigger: ".who-we-are__content-image",
+          start: "top center",
+          end: "bottom top",
+          scrub: true, // Smoothly animate the movement as you scroll
+        },
+      }).fromTo(
+        ".who-we-are__content-image",
+        {
+          y: -20, // Start position (30px above)
+        },
+        {
+          y: 30, // End position (original position)
+          duration: 4, // Duration of the animation
+        }
+      );
+    });
+
+    //move who-we-are__content-image down gradually on scroll
+    mm.add("(min-width: 1200px)", () => {
+      Gsap.timeline({
+        scrollTrigger: {
+          trigger: ".who-we-are__content-image",
+          start: "top center",
+          end: "bottom top",
+          scrub: true, // Smoothly animate the movement as you scroll
+        },
+      }).fromTo(
+        ".who-we-are__content-image",
+        {
+          y: -60, // Start position (100px above)
+        },
+        {
+          y: 70, // End position (original position)
+          duration: 4, // Duration of the animation
         }
       );
     });
