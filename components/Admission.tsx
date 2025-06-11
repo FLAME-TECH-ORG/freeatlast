@@ -1,4 +1,40 @@
+"use client";
+
+import gsap from "gsap";
+import { useEffect } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 export default function Admission() {
+  const Gsap = gsap;
+  const scrollTrigger = ScrollTrigger;
+
+  useEffect(() => {
+    Gsap.registerPlugin(scrollTrigger);
+
+    Gsap.utils
+      .toArray(".admission__content-cards__card")
+      .forEach((attr: any, i) => {
+        Gsap.fromTo(
+          attr,
+          {
+            scale: 0,
+          },
+          {
+            scale: 1,
+            duration: 0.3,
+            ease: "power4.out",
+
+            scrollTrigger: {
+              trigger: ".admission__content-cards",
+              start: "top 90%",
+              end: "bottom top",
+            },
+            delay: i * 0.2,
+          }
+        );
+      });
+  }, []);
+
   return (
     <div className="admission">
       <div className="admission__content">

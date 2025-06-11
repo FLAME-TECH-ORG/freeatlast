@@ -67,6 +67,7 @@
 
         &__image {
           height: pxToRem(270);
+          overflow: hidden;
           border-radius: pxToRem(18);
           background-color: #fefaf0;
 
@@ -75,6 +76,12 @@
             height: 100%;
             object-fit: cover;
             border-radius: inherit;
+
+            transition: transform 0.4s ease-in-out;
+
+            &:hover {
+              transform: scale(1.01);
+            }
           }
         }
 
