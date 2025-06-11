@@ -1,6 +1,7 @@
 "use client";
 
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa6";
+import { Autoplay } from "swiper/modules";
 import Swiper from "swiper";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
@@ -42,7 +43,12 @@ export default function Testimonies() {
     featuredSwiper = new Swiper("#testimoniesSlide", {
       slidesPerView: "auto",
       loop: true,
-      modules: [Pagination],
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      speed: 800,
+      modules: [Pagination, Autoplay],
       pagination: {
         el: ".swiper-pagination",
         clickable: true,
