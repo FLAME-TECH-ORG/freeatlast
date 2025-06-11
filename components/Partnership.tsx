@@ -1,4 +1,37 @@
+"use client";
+
+import gsap from "gsap";
+import { useEffect } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 export default function Partnership() {
+  const Gsap = gsap;
+  const scrollTrigger = ScrollTrigger;
+
+  useEffect(() => {
+    Gsap.registerPlugin(scrollTrigger);
+
+    // fade in partnership once they appear on the screen
+
+    Gsap.timeline({
+      scrollTrigger: {
+        trigger: ".partnership__content",
+        start: "top center",
+        end: "bottom top",
+        scrub: true, // Smoothly animate the movement as you scroll
+      },
+    }).fromTo(
+      ".partnership__content",
+      {
+        y: -20, // Start position (100px above)
+      },
+      {
+        y: 20, // End position (original position)
+        duration: 4, // Duration of the animation
+      }
+    );
+  }, []);
+
   return (
     <div className="partnership">
       <div className="partnership__content">
