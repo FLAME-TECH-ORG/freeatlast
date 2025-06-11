@@ -1,12 +1,22 @@
 "use client";
 
 import gsap from "gsap";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function ContactUs() {
   const Gsap = gsap;
   const scrollTrigger = ScrollTrigger;
+
+  const [contactUs, setContactUs] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    description: "",
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     Gsap.registerPlugin(scrollTrigger);
@@ -57,6 +67,51 @@ export default function ContactUs() {
       }
     );
   }, []);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    const apiURL = process.env.GOOGLE_SHEET_URL || "";
+
+    if (!apiURL) {
+      console.error("error: url is not defined");
+      return; // or handle the error as needed
+    }
+
+    try {
+      const payload = new FormData();
+      payload.append("Name", contactUs.name);
+      payload.append("Email", contactUs.email);
+      payload.append("Phone", contactUs.phone);
+      payload.append("Subject", contactUs.subject);
+      payload.append("Description", contactUs.description);
+
+      const response = await fetch(apiURL, {
+        method: "POST",
+        redirect: "follow",
+        body: payload,
+      });
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      const data = await response.json();
+      alert("Thank you for contacting us!");
+      setContactUs({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        description: "",
+      });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("There was an error submitting your form. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <div className="contact-us" id="contact-us">
       <div className="contact-us__content">
@@ -90,36 +145,73 @@ export default function ContactUs() {
             </li>
           </ul>
         </div>
-        <form className="contact-us__content-form">
+        <form className="contact-us__content-form" onSubmit={handleSubmit}>
           <div className="form-input__row">
             <div className="form-input">
               <label htmlFor="">Name</label>
-              <input type="text" required />
+              <input
+                type="text"
+                required
+                value={contactUs.name}
+                onChange={(e) =>
+                  setContactUs({ ...contactUs, name: e.target.value })
+                }
+              />
             </div>
             <div className="form-input">
               <label htmlFor="">Email</label>
-              <input type="email" required />
+              <input
+                type="email"
+                required
+                value={contactUs.email}
+                onChange={(e) =>
+                  setContactUs({ ...contactUs, email: e.target.value })
+                }
+              />
             </div>
           </div>
           <div className="form-input__row">
             <div className="form-input">
               <label htmlFor="">Phone Number</label>
-              <input type="numeric" required />
+              <input
+                type="numeric"
+                required
+                value={contactUs.phone}
+                onChange={(e) =>
+                  setContactUs({ ...contactUs, phone: e.target.value })
+                }
+              />
             </div>
             <div className="form-input">
               <label htmlFor="">Subject</label>
-              <input type="text" required />
+              <input
+                type="text"
+                required
+                value={contactUs.subject}
+                onChange={(e) =>
+                  setContactUs({ ...contactUs, subject: e.target.value })
+                }
+              />
             </div>
           </div>
           <div className="form-input__row">
             <div className="form-input">
               <label htmlFor="">Description</label>
-              <textarea rows={6} required />
+              <textarea
+                rows={6}
+                required
+                value={contactUs.description}
+                onChange={(e) =>
+                  setContactUs({ ...contactUs, description: e.target.value })
+                }
+              ></textarea>
             </div>
           </div>
           <div className="form-input__row">
             <div>
-              <button className="form-btn">Submit</button>
+              <button className="form-btn">
+                {isSubmitting ? "Submitting..." : "Submit"}
+              </button>
             </div>
           </div>
         </form>
