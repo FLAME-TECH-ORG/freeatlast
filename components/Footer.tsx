@@ -6,7 +6,7 @@ export default function AboutUs() {
       <div className="footer__content">
         <div className="footer__content-company">
           <img
-            src="logo-white.svg"
+            src="logo-white.png"
             alt="Company Logo"
             className="footer__content-company-logo"
           />
