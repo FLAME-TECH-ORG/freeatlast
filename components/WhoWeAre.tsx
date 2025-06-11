@@ -28,6 +28,8 @@ export default function WhoWeAre() {
             trigger: attr,
             start: "top 94%",
             end: "bottom 85%",
+            scrub: true, // Smoothly animate the movement as you scroll
+            snap: 1, // Snap to the nearest value
             toggleActions: "play none none reverse",
             // update the opacity and y position based on scroll position percentage
             onUpdate: (self) => {
@@ -35,6 +37,7 @@ export default function WhoWeAre() {
               attr.style.opacity = progress;
             },
           },
+          delay: i * 0.1, // Stagger the animation
         }
       );
     });
@@ -98,8 +101,10 @@ export default function WhoWeAre() {
             ease: "power1.out",
             scrollTrigger: {
               trigger: attr,
-              start: "top 94%",
+              start: "top 95%",
               end: "bottom 85%",
+              snap: 1,
+              scrub: true, // Smoothly animate the movement as you scroll
               toggleActions: "play none none reverse",
               // change opacity based on scroll position percentage
               onUpdate: (self) => {
