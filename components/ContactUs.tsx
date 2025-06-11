@@ -73,6 +73,8 @@ export default function ContactUs() {
     setIsSubmitting(true);
     const apiURL = process.env.GOOGLE_SHEET_URL || "";
 
+    // referrence https://jafaraziz.com/blog/google-sheets-form/
+
     if (!apiURL) {
       console.error("error: url is not defined");
       return; // or handle the error as needed
