@@ -1,4 +1,62 @@
+"use client";
+
+import gsap from "gsap";
+import { useEffect } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 export default function ContactUs() {
+  const Gsap = gsap;
+  const scrollTrigger = ScrollTrigger;
+
+  useEffect(() => {
+    Gsap.registerPlugin(scrollTrigger);
+
+    Gsap.utils
+      .toArray(".contact-us__content-writeup > *")
+      .forEach((attr: any, i) => {
+        Gsap.fromTo(
+          attr,
+          {
+            opacity: 0,
+          },
+          {
+            duration: 1,
+            ease: "power1.out",
+            scrollTrigger: {
+              trigger: attr,
+              start: "top 95%",
+              end: "bottom 85%",
+              scrub: true, // Smoothly animate the movement as you scroll
+              toggleActions: "play none none reverse",
+              onUpdate: (self) => {
+                const progress = self.progress.toFixed(2);
+                attr.style.opacity = progress;
+              },
+            },
+          }
+        );
+      });
+
+    //move who-we-are__content-image down gradually on scroll
+    Gsap.timeline({
+      scrollTrigger: {
+        trigger: ".contact-us__content-form",
+        start: "top center",
+        end: "bottom top",
+        scrub: true, // Smoothly animate the movement as you scroll
+      },
+    }).fromTo(
+      ".contact-us__content-form",
+      {
+        y: -15, // Start position (100px above)
+        duration: 1.5, // Duration of the animation
+      },
+      {
+        y: 20, // End position (original position)
+        duration: 1.5, // Duration of the animation
+      }
+    );
+  }, []);
   return (
     <div className="contact-us" id="contact-us">
       <div className="contact-us__content">
