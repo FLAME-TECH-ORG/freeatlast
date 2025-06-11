@@ -100,12 +100,10 @@ export default function Testimonies() {
         Gsap.fromTo(
           attr,
           {
-            y: 20,
-            opacity: 0,
+            y: 40,
           },
           {
             y: 0, // End position (original position)
-            // opacity: 1, // End with full opacity
             duration: 1,
             ease: "power1.out",
             scrollTrigger: {
@@ -115,11 +113,6 @@ export default function Testimonies() {
               snap: 1,
               scrub: true, // Smoothly animate the movement as you scroll
               toggleActions: "play none none reverse",
-              // change opacity based on scroll position percentage
-              onUpdate: (self) => {
-                const progress = self.progress.toFixed(2);
-                attr.style.opacity = progress;
-              },
             },
           }
         );
