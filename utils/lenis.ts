@@ -16,3 +16,5 @@ export const initLenis = () => {
 
   return lenis;
 };
+
+// reference: https://rabbitrank.com/how-i-made-smooth-scrolling-magic-in-next-js-with-lenis-and-gsap/
